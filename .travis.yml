@@ -1,0 +1,17 @@
+sudo: false
+language: rust
+
+env:
+  global:
+    - CRATE=android_looper-sys
+
+matrix:
+  allow_failures:
+    - rust: nightly
+  include:
+    - rust: nightly
+      env: DOC=true
+    - rust: stable
+
+after_success:
+  - /bin/bash export_doc.sh

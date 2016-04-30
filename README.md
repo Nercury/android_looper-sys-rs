@@ -1,5 +1,7 @@
 # Bindings to Native Android Looper
 
+- See [reference docs](http://nercury.github.io/android_looper-sys-rs/android_looper-sys/index.html).
+
 ## License
 
 Licensed under either of
