@@ -3,7 +3,7 @@ language: rust
 
 env:
   global:
-    - CRATE=android_looper-sys
+    - CRATE=android_looper_sys
 
 matrix:
   allow_failures:

@@ -1,13 +1,13 @@
 [package]
 name = "android_looper-sys"
-version = "0.1.2"
+version = "0.1.3"
 authors = [
     "The android_looper_sys Developers",
 ]
 license = "MIT OR Apache-2.0"
 readme = "README.md"
 repository = "https://github.com/nercury/android_looper-sys-rs"
-documentation = "http://nercury.github.io/android_looper-sys-rs/android_looper-sys/index.html"
+documentation = "http://nercury.github.io/android_looper-sys-rs/android_looper_sys/index.html"
 description = """
 FFI Bindings to Native Android Looper.
 """
