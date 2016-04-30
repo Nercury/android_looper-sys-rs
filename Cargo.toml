@@ -1,6 +1,6 @@
 [package]
 name = "android_looper-sys"
-version = "0.1.0"
+version = "0.1.1"
 authors = [
     "The android_looper_sys Developers",
 ]
@@ -8,7 +8,7 @@ license = "MIT OR Apache-2.0"
 readme = "README.md"
 repository = "https://github.com/nercury/android_looper-sys-rs"
 description = """
-Bindings to Android Looper Library.
+FFI Bindings to Native Android Looper.
 """
 
 [dependencies]

@@ -1,4 +1,4 @@
-# Bindings to Android Looper Library
+# Bindings to Native Android Looper
 
 ## License
 
