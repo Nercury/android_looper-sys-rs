@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["ERROR","`ALOOPER_EVENT_ERROR`"],["HANGUP","`ALOOPER_EVENT_HANGUP`"],["INPUT","`ALOOPER_EVENT_INPUT`"],["INVALID","`ALOOPER_EVENT_INVALID`"],["OUTPUT","`ALOOPER_EVENT_OUTPUT`"]],"struct":[["Type",""]]});

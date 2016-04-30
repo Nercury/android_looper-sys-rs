@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `ALooper_addFd` fn in crate `android_looper_sys`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, ALooper_addFd">
+
+    <title>android_looper_sys::ALooper_addFd - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='index.html'>android_looper_sys</a></p><script>window.sidebarCurrent = {name: 'ALooper_addFd', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content fn">
+<h1 class='fqn'><span class='in-band'><a href='index.html'>android_looper_sys</a>::<wbr><a class='fn' href=''>ALooper_addFd</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-240' class='srclink' href='../src/android_looper_sys/src/lib.rs.html#220-226' title='goto source code'>[src]</a></span></h1>
+<pre class='rust fn'>pub unsafe extern fn ALooper_addFd(looper: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='enum' href='../android_looper_sys/enum.ALooper.html' title='android_looper_sys::ALooper'>ALooper</a>, fd: <a class='type' href='../libc/type.c_int.html' title='libc::c_int'>c_int</a>, ident: <a class='type' href='../libc/type.c_int.html' title='libc::c_int'>c_int</a>, events: <a class='type' href='../libc/type.c_int.html' title='libc::c_int'>c_int</a>, callback: <a class='type' href='../android_looper_sys/type.ALooper_callbackFunc.html' title='android_looper_sys::ALooper_callbackFunc'>ALooper_callbackFunc</a>, data: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='enum' href='../libc/enum.c_void.html' title='libc::c_void'>c_void</a>) -&gt; <a class='type' href='../libc/type.c_int.html' title='libc::c_int'>c_int</a></pre><div class='docblock'><p>Adds a new file descriptor to be polled by the looper.
+If the same file descriptor was previously added, it is replaced.</p>
+
+<ul>
+<li>&quot;fd&quot; is the file descriptor to be added.</li>
+<li>&quot;ident&quot; is an identifier for this event, which is returned from ALooper_pollOnce().
+The identifier must be &gt;= 0, or ALOOPER_POLL_CALLBACK if providing a non-NULL callback.</li>
+<li>&quot;events&quot; are the poll events to wake up on.  Typically this is ALOOPER_EVENT_INPUT.</li>
+<li>&quot;callback&quot; is the function to call when there is an event on the file descriptor.</li>
+<li>&quot;data&quot; is a private data pointer to supply to the callback.</li>
+</ul>
+
+<p>There are two main uses of this function:</p>
+
+<p>(1) If &quot;callback&quot; is non-NULL, then this function will be called when there is
+data on the file descriptor.  It should execute any events it has pending,
+appropriately reading from the file descriptor.  The &#39;ident&#39; is ignored in this case.</p>
+
+<p>(2) If &quot;callback&quot; is NULL, the &#39;ident&#39; will be returned by ALooper_pollOnce
+when its file descriptor has data available, requiring the caller to take
+care of processing it.</p>
+
+<p>Returns 1 if the file descriptor was added or -1 if an error occurred.</p>
+
+<p>This method can be called on any thread.
+This method may block briefly if it needs to wake the poll.</p>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "android_looper_sys";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script defer src="../search-index.js"></script>
+</body>
+</html>
