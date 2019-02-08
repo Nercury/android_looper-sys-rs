@@ -1,6 +1,6 @@
 [package]
 name = "android_looper-sys"
-version = "0.1.4"
+version = "0.2.0"
 authors = [
     "The android_looper_sys Developers",
 ]
@@ -16,4 +16,4 @@ categories = ["external-ffi-bindings"]
 
 [dependencies]
 libc = "0.2"
-bitflags = "0.7"
+bitflags = "1.0"
