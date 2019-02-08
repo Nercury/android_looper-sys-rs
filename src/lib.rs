@@ -45,7 +45,7 @@ pub enum LooperPrepareOpts {
     /// for the callback).  In this case the caller of ALooper_pollOnce()
     /// or ALooper_pollAll() MUST check the return from these functions to
     /// discover when data is available on such fds and process it.
-    AllowNonCallbacks = 1,
+    AllowNonCallbacks = 1 << 0,
     /// `0` value, allow only callbacks
     None = 0,
 }
@@ -113,15 +113,6 @@ pub mod event {
         }
     }
 }
-
-/// Option for for ALooper_prepare().
-///
-/// This looper will accept calls to ALooper_addFd() that do not
-/// have a callback (that is provide NULL for the callback).  In
-/// this case the caller of ALooper_pollOnce() or ALooper_pollAll()
-/// MUST check the return from these functions to discover when
-/// data is available on such fds and process it.
-pub const ALOOPER_PREPARE_ALLOW_NON_CALLBACKS: c_int = 1 << 0;
 
 /**
  * For callback-based event loops, this is the prototype of the function

@@ -1,6 +1,6 @@
 [package]
 name = "android_looper-sys"
-version = "0.2.0"
+version = "0.3.0"
 authors = [
     "The android_looper_sys Developers",
 ]
