@@ -78,22 +78,22 @@ pub enum LooperPoll {
 /// These flag bits can be combined to monitor multiple events at once.
 pub mod event {
     bitflags! {
-        pub flags Type: isize {
+        pub struct Type: isize {
             /// `ALOOPER_EVENT_INPUT`
             ///
             /// The file descriptor is available for read operations.
-            const INPUT       = 1 << 0,
+            const INPUT       = 1 << 0;
             /// `ALOOPER_EVENT_OUTPUT`
             ///
             /// The file descriptor is available for write operations.
-            const OUTPUT    = 1 << 1,
+            const OUTPUT    = 1 << 1;
             /// `ALOOPER_EVENT_ERROR`
             ///
             /// The file descriptor has encountered an error condition.
             ///
             /// The looper always sends notifications about errors; it is not necessary
             /// to specify this event flag in the requested event set.
-            const ERROR   = 1 << 2,
+            const ERROR   = 1 << 2;
             /// `ALOOPER_EVENT_HANGUP`
             ///
             /// The file descriptor was hung up.
@@ -101,7 +101,7 @@ pub mod event {
             ///
             /// The looper always sends notifications about hangups; it is not necessary
             /// to specify this event flag in the requested event set.
-            const HANGUP   = 1 << 3,
+            const HANGUP   = 1 << 3;
             /// `ALOOPER_EVENT_INVALID`
             ///
             /// The file descriptor is invalid.
@@ -109,7 +109,7 @@ pub mod event {
             ///
             /// The looper always sends notifications about invalid file descriptors; it is not necessary
             /// to specify this event flag in the requested event set.
-            const INVALID       = 1 << 4,
+            const INVALID       = 1 << 4;
         }
     }
 }
@@ -121,7 +121,7 @@ pub mod event {
 /// this case the caller of ALooper_pollOnce() or ALooper_pollAll()
 /// MUST check the return from these functions to discover when
 /// data is available on such fds and process it.
-const ALOOPER_PREPARE_ALLOW_NON_CALLBACKS: c_int = 1 << 0;
+pub const ALOOPER_PREPARE_ALLOW_NON_CALLBACKS: c_int = 1 << 0;
 
 /**
  * For callback-based event loops, this is the prototype of the function
