@@ -114,6 +114,15 @@ pub mod event {
     }
 }
 
+/// Option for for ALooper_prepare().
+///
+/// This looper will accept calls to ALooper_addFd() that do not
+/// have a callback (that is provide NULL for the callback).  In
+/// this case the caller of ALooper_pollOnce() or ALooper_pollAll()
+/// MUST check the return from these functions to discover when
+/// data is available on such fds and process it.
+const ALOOPER_PREPARE_ALLOW_NON_CALLBACKS: c_int = 1 << 0;
+
 /**
  * For callback-based event loops, this is the prototype of the function
  * that is called when a file descriptor event occurs.
